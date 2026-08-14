@@ -11,38 +11,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      # 1. Get the project files from the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Install Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
+      # 3. Install Java required by Android/Gradle
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
+      # 4. Install the Node/Capacitor packages
       - name: Install dependencies
         run: npm install
 
+      # 5. Create the Android project
       - name: Add Android platform
         run: npx cap add android
 
+      # 6. Copy the MentalState web application into Android
       - name: Sync MentalState web application
         run: npx cap sync android
 
+      # 7. Build the Android debug APK
       - name: Build debug APK
         working-directory: android
         run: ./gradlew assembleDebug
 
+      # 8. Give the APK a recognizable name
       - name: Rename APK
         run: |
           cp android/app/build/outputs/apk/debug/app-debug.apk MentalState-debug.apk
 
+      # 9. Upload the APK to GitHub
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
