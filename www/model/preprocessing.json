@@ -1,0 +1,48 @@
+{
+    "numeric_features": [
+        "Age",
+        "PHQ_9_Depression_Score",
+        "GAD_7_Anxiety_Score",
+        "Sleep_Duration_Hours",
+        "Medication_Adherence_Percent",
+        "Number_of_Hospital_Clinic_Visits",
+        "Time_Since_Last_Clinical_Visit_Days"
+    ],
+    "categorical_features": [
+        "Gender",
+        "Previous_Mental_Health_Diagnosis",
+        "Chronic_Disease_Status"
+    ],
+    "numeric_mean": [
+        43.388392857142854,
+        11.085464285714286,
+        11.010169642857143,
+        5.251964285714286,
+        72.07464285714286,
+        6.865892857142857,
+        59.71339285714286
+    ],
+    "numeric_scale": [
+        15.740894451440095,
+        6.490959052967128,
+        5.642197177437035,
+        1.2797340957665178,
+        14.600543038370393,
+        3.315717050646659,
+        37.62473776732469
+    ],
+    "categories": [
+        [
+            "Female",
+            "Male"
+        ],
+        [
+            "No",
+            "Yes"
+        ],
+        [
+            "No",
+            "Yes"
+        ]
+    ]
+}
